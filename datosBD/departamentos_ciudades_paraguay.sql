@@ -4,15 +4,15 @@
 DROP TABLE IF EXISTS `departments`;
 
 CREATE TABLE `departments` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_dep` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   `capital` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `departments` WRITE;
 
-INSERT INTO `departments` (`id`, `name`, `capital`)
+INSERT INTO `departments` (`id_dep`, `nombre`, `capital`)
 VALUES
 	(1,'Central','Areguá'),
 	(2,'Concepción','Concepción'),
@@ -38,18 +38,18 @@ UNLOCK TABLES;
 # Dump of table townships
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `townships`;
+DROP TABLE IF EXISTS `municipios`;
 
-CREATE TABLE `townships` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `department_id` int(11) NOT NULL,
-  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `municipios` (
+  `id_muni` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_dep` int(11) NOT NULL,
+  `nombre` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-LOCK TABLES `townships` WRITE;
+LOCK TABLES `municipios` WRITE;
 
-INSERT INTO `townships` (`id`, `department_id`, `name`)
+INSERT INTO `municipios` (`id`, `id_dep`, `nombre`)
 VALUES
 	(1,1,'Asunción'),
 	(2,17,'Bahía Negra'),
